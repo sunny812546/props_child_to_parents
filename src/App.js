@@ -1,26 +1,19 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect, useState } from "react";
+import "./App.css";
+import Child from "./Child";
 
-function App() {
+const App = () => {
+  const [value, setValue] = useState("");
+  const getTitle = (title) => {
+    console.log("Title", title);
+    setValue(title);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Child getTitle={getTitle} />
+      <h1>{value}</h1>
     </div>
   );
-}
+};
 
 export default App;
